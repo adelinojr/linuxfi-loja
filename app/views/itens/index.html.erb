@@ -1,0 +1,32 @@
+<% content_for :cabecalho do %>
+  Meu Carrinho
+<% end %>
+
+<% form_tag atualizar_pedido_itens_path, :method => :post do %>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Nome |</td>
+        <td>Quantidade |</td>
+        <td>Preço unitario |</td>
+        <td>Preço total</td>
+      </tr>
+    </thead>
+    <tbody>
+      <%pedido_atual.itens.each do |item|%>
+        <%= render "item", :item => item %> <!-- Meu Partial _item.html.erb -->
+      <%end%>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2"></td>
+        <td>Preço Total:</td>
+        <td> <%= number_to_currency pedido_atual.preco_total %> </td>
+      </tr>
+    </tfoot>
+  </table>
+
+    <%= submit_tag "Atualizar" %>
+
+  <%  end %>

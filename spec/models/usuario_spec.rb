@@ -18,7 +18,7 @@ describe Usuario do
 
   end
 
-  context "ao autentica usuário" do
+  context "ao validar se a senha é correta" do
 
     before do
       @usuario = Factory( :usuario, :email => "cade@gmail.com", :senha => "123456", :senha_confirmation => "123456")

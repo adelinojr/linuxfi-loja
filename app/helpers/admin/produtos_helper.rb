@@ -7,7 +7,11 @@ module Admin::ProdutosHelper
     end
     form_for( @produto,
       :url => opcoes.first,
-      :html => { :method => opcoes.last },
+      :html => { :method => opcoes.last,
+
+      # sempre que deseja enviar um arquivo para o rails
+      :multipart => true
+      },
       &block )
   end
 end

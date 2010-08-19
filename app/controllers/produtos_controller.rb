@@ -11,6 +11,7 @@ class ProdutosController < ApplicationController
 =end
       resultado = Produto.solr_search do |s|
         s.keywords params[:q]
+        s.with(:preco)
       end
       resultado.results
     end
